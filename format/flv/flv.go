@@ -224,6 +224,8 @@ func CodecDataToTag(stream av.CodecData) (_tag flvio.Tag, ok bool, err error) {
 
 	case av.NELLYMOSER:
 	case av.SPEEX:
+	case av.PCM_MULAW:
+
 
 	case av.AAC:
 		aac := stream.(aacparser.CodecData)
@@ -250,7 +252,7 @@ func CodecDataToTag(stream av.CodecData) (_tag flvio.Tag, ok bool, err error) {
 		_tag = tag
 
 	default:
-		err = fmt.Errorf("flv: unspported codecType=%v", stream.Type())
+		err = fmt.Errorf("flv: unsupported codecType=%v", stream.Type())
 		return
 	}
 	return
